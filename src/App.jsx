@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { instance } from './api/config/instance';
 
 function App() {
+
+  const handleTestBUttonOnClick = async () => {
+    const response = await instance.get("test");
+    alert(response.data);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +24,9 @@ function App() {
         >
           Learn React
         </a>
+        <main>
+        <button onClick={handleTestBUttonOnClick}>테스트</button>
+      </main>
       </header>
     </div>
   );
